@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Faculty Logs</title>
+    <title>My Attendance Logs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <span class="navbar-brand">Faculty Logs</span>
+    <span class="navbar-brand">My Attendance Logs</span>
     <div class="ms-auto">
         <a href="{{ url_for('dashboard.dashboard_home') }}" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
         <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
@@ -16,26 +16,9 @@
 </nav>
 
 <div class="container mt-4">
-    <form class="row g-3" method="get" action="{{ url_for('dashboard.faculty_logs') }}">
-        <div class="col-auto">
-            <label class="form-label">From</label>
-            <input type="date" name="from" value="{{ (start.strftime('%Y-%m-%d') if start) if start else '' }}" class="form-control">
-        </div>
-        <div class="col-auto">
-            <label class="form-label">To</label>
-            <input type="date" name="to" value="{{ (end.strftime('%Y-%m-%d') if end) if end else '' }}" class="form-control">
-        </div>
-        <div class="col-auto align-self-end">
-            <button class="btn btn-primary">Filter</button>
-            <a class="btn btn-secondary" href="{{ url_for('dashboard.faculty_logs') }}">Reset</a>
-            <a class="btn btn-success" href="{{ url_for('dashboard.faculty_logs_export', **request.args) }}">Export CSV</a>
-        </div>
-    </form>
-
     <table class="table table-bordered table-striped mt-3">
         <thead class="table-dark">
             <tr>
-                <th>Student</th>
                 <th>Status</th>
                 <th>Date & Time</th>
             </tr>
@@ -43,13 +26,12 @@
         <tbody>
             {% for log in logs %}
             <tr>
-                <td>{{ log.user.full_name }} ({{ log.user.username }})</td>
                 <td>{{ log.status }}</td>
                 <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="3" class="text-center text-muted">No logs found for current filter.</td>
+                <td colspan="2" class="text-center text-muted">No logs yet.</td>
             </tr>
             {% endfor %}
         </tbody>

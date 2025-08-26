@@ -19,9 +19,15 @@
     <p>You can manage users, view logs, and configure system settings.</p>
 
     <ul class="list-group">
-        <li class="list-group-item"><a href="#">Manage Faculty & Students</a></li>
-        <li class="list-group-item"><a href="#">View Attendance Logs</a></li>
-        <li class="list-group-item"><a href="#">System Settings</a></li>
+        <li class="list-group-item">
+            <a href="{{ url_for('admin.view_users') }}">👥 Manage Faculty & Students</a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url_for('admin.view_all_logs') }}">📊 View Attendance Logs</a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url_for('admin.system_settings') }}">⚙️ System Settings (Coming Soon)</a>
+        </li>
     </ul>
 </div>
 

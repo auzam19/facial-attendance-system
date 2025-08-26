@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Settings (Coming Soon)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <span class="navbar-brand">System Settings</span>
+  <div class="ms-auto">
+    <a href="{{ url_for('dashboard.dashboard_home') }}" class="btn btn-outline-light btn-sm me-2">Dashboard</a>
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <div class="alert alert-info">
+    This page is a placeholder. Settings will be configurable here soon.
+  </div>
+
+  <div class="card shadow">
+    <div class="card-body">
+      <h5 class="card-title mb-3">General</h5>
+      <div class="mb-3">
+        <label class="form-label">Attendance Similarity Threshold</label>
+        <input type="text" class="form-control" value="0.75" disabled>
+        <div class="form-text">Adjustable in a future release.</div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input class="form-check-input" type="checkbox" checked disabled id="fk">
+        <label class="form-check-label" for="fk">Enforce DB Cascades</label>
+      </div>
+
+      <button class="btn btn-secondary" disabled>Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

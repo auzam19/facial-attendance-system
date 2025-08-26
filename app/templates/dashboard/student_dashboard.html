@@ -18,16 +18,14 @@
     <h3>Welcome, {{ user.full_name }} (Student)</h3>
     <p>Use the options below to manage your attendance.</p>
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+    {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}{% endwith %}
 
     <ul class="list-group">
         <li class="list-group-item">
@@ -37,7 +35,7 @@
             <a href="{{ url_for('recognition.register_face') }}">🧑‍💻 Register My Face</a>
         </li>
         <li class="list-group-item">
-            <a href="#">📄 View My Attendance Logs (Coming Soon)</a>
+            <a href="{{ url_for('dashboard.student_logs') }}">📄 View My Attendance Logs</a>
         </li>
     </ul>
 </div>

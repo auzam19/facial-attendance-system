@@ -1,16 +1,22 @@
-# Ignore virtual environment
-venv/
-
-# Bytecode files
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.env
+*.log
 
-# System files
+# OS/editor
 .DS_Store
-Thumbs.db
-
-# Ignore database file (optional)
-app/database.db
-
-# VS Code settings (optional)
+.idea/
 .vscode/
+
+# Local data we don't want in git
+instance/
+*.db
+*.sqlite
+registered_faces/
+project_code_dump.md
